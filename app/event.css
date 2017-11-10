@@ -1,0 +1,13 @@
+.event {
+    background: #007bff;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    margin: 0 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.event:hover {
+    transform: translateY(-1px);
+    background-color: #5bc0de;
+}

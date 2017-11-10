@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viagogo Code Challenge</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app/event.css">
+</head>
+<body>
+<div class="container">
+    <header class="header clearfix">
+        <h3 class="text-muted">Viagogo Code Challenge</h3>
+    </header>
+
+    <main role="main">
+
+        <div class="jumbotron">
+            <h1 class="display-3">Looking for the next big thing?</h1>
+            <p class="lead">Check out the super cool events listed below and get the best prices for the night of your life!</p>
+        </div>
+
+        <div class="row marketing">
+
+            <div class="col-lg-5">
+                <h4>Events</h4>
+                <p>Here's a list of events to pick and choose from!</p>
+                <div id="js-gridOfEvents"></div>
+            </div>
+
+            <div class="col-lg-7">
+                <form>
+                    <div class="form-row align-items-center">
+                        <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInput">Name</label>
+                            <div class="input-group mb-2 mb-sm-0">
+                                <div class="input-group-addon">X</div>
+                                <input type="text" class="form-control" id="inlineFormInput" placeholder="X Coordinate">
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                            <div class="input-group mb-2 mb-sm-0">
+                                <div class="input-group-addon">Y</div>
+                                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Y Coordinate">
+                            </div>
+                        </div>
+                        <div >
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+
+    </main>
+
+</div> <!-- /container -->
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="app/services/Ticket.js"></script>
+<script type="text/javascript" src="app/services/Event.js"></script>
+
+<script>
+    Event.init();
+</script>
+
+</html>
