@@ -31,21 +31,21 @@
                 <form>
                     <div class="form-row align-items-center">
                         <div class="col-auto">
-                            <label class="sr-only" for="inlineFormInput">Name</label>
+                            <label class="sr-only" for="xCoordinate">Name</label>
                             <div class="input-group mb-2 mb-sm-0">
                                 <div class="input-group-addon">X</div>
-                                <input type="text" class="form-control" id="inlineFormInput" placeholder="X Coordinate">
+                                <input type="text" class="form-control" id="xCoordinate" placeholder="X Coordinate">
                             </div>
                         </div>
                         <div class="col-auto">
-                            <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                            <label class="sr-only" for="yCoordinate">Username</label>
                             <div class="input-group mb-2 mb-sm-0">
                                 <div class="input-group-addon">Y</div>
-                                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Y Coordinate">
+                                <input type="text" class="form-control" id="yCoordinate" placeholder="Y Coordinate">
                             </div>
                         </div>
                         <div >
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button class="btn btn-primary js-submit">Submit</button>
                         </div>
                     </div>
                 </form>
@@ -61,9 +61,10 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="app/services/Ticket.js"></script>
 <script type="text/javascript" src="app/services/Event.js"></script>
+<script type="text/javascript" src="app/controller/EventController.js"></script>
 
 <script>
-    Event.init();
+    eventController.init();
 </script>
 
 </html>

@@ -11,3 +11,8 @@
     transform: translateY(-1px);
     background-color: #5bc0de;
 }
+
+.event--active {
+    background-color: #5bc0de;
+    transform: scale(1.3);
+}

@@ -4,16 +4,14 @@
 
 (function(jQuery, window, ticketsManager){
     
-    var Event = {
+    var eventService = {
 
         ticketsManager: ticketsManager,
 
-        config: {
-            gridSize: 10,
-            selector: '#js-gridOfEvents'
-        },
+        config: {},
 
-        init: function() {
+        init: function(config) {
+            this.config = config;
             this.generateEvents(this.config.gridSize);
         },
 
@@ -37,19 +35,52 @@
                     events.push(event);
                 }
             }
-            this.appendEvents(events)
+            this.appendEvents(events);
 
         },
 
         appendEvents: function (events) {
 
-            for (i = 0; i < events.length; ++i) {
-                $("<div class='event' id='" + events[i]._id + "' data-x-position='" + events[i].xPosition + "' data-y-position='" + events[i].yPosition + "' data-name='" + events[i].name + "'>").appendTo(this.config.selector);
+            for (i = 0; i < events.length; i++) {
+                $("<div class='event' id='" + events[i]._id + "' data-x-position='" + events[i].xPosition + "' data-y-position='" + events[i].yPosition + "' data-name='" + events[i].name + "'>").appendTo(this.config.gridContainer);
             }
+        },
+
+        findCurrentEvent: function(inputXCord, inputYCord) {
+            $('.event').removeClass('event--active');
+            $(".event[data-x-position='" + inputXCord + "'][data-y-position='" + inputYCord +"']").addClass("event--active");
+        },
+
+
+        findCheapestNeighbors: function (inputXCord, inputYCord, events, maxNeighborsToReturn) {
+            var distance= [];
+            var nearestNeighbours= [];
+
+            for(i = 0; i< events.length; i++)  {
+                computedDistance = Math.abs(inputXCord - $(events[i]).data('xPosition')) + Math.abs(inputYCord - $(events[i]).data('yPosition'));
+
+                var cellDistance = {
+                    eventID: $(events[i]).attr('id'),
+                    distanceFromInput: computedDistance
+                };
+
+                distance.push(cellDistance);
+            }
+
+            //sort the events based on how close they are
+            distance = distance.sort(function(a, b) {
+                return a.distanceFromInput - b.distanceFromInput;
+            });
+
+
+            //return the closest ones only based on how much we need to display from config
+            nearestNeighbours = distance.slice(1,maxNeighborsToReturn);
+
+            return nearestNeighbours;
         }
         
     };
 
-    window.Event = Event;
+    window.eventService = eventService;
 
 })(jQuery, window, window.TicketManager);

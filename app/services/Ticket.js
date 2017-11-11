@@ -4,7 +4,7 @@
 
 (function(jQuery, window){
     
-    var TicketManager= {
+    var TicketManager = {
 
         generateTicket: function () {
 
