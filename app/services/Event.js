@@ -15,6 +15,21 @@
             this.generateEvents(this.config.gridSize);
         },
 
+        getEvent: function (eventID, distance) {
+
+           var eventElement =  $(".event[id='" + eventID + "']");
+
+            var event = {
+                name: eventElement.data('name'),
+                _id: eventID,
+                xPosition: eventElement.data('xPosition'),
+                yPosition: eventElement.data('yPosition'),
+                distance: distance
+            };
+
+            return event;
+        },
+
         generateEvents: function(gridSize) {
 
             var x,y;
@@ -51,7 +66,6 @@
             $(".event[data-x-position='" + inputXCord + "'][data-y-position='" + inputYCord +"']").addClass("event--active");
         },
 
-
         findCheapestNeighbors: function (inputXCord, inputYCord, events, maxNeighborsToReturn) {
             var distance= [];
             var nearestNeighbours= [];
@@ -75,6 +89,10 @@
 
             //return the closest ones only based on how much we need to display from config
             nearestNeighbours = distance.slice(1,maxNeighborsToReturn);
+
+            for(var i = 0; i<nearestNeighbours.length; i++) {
+                nearestNeighbours[i]= this.getEvent(nearestNeighbours[i].eventID,nearestNeighbours[i].distanceFromInput);
+            }
 
             return nearestNeighbours;
         }

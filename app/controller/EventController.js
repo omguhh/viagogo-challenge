@@ -42,11 +42,46 @@
 
             this.eventService.findCurrentEvent(xposition,yposition);
             var cheapestNeighbors = this.eventService.findCheapestNeighbors(xposition,yposition,$('.event'), this.config.maxNeighborsToReturn);
-            this.showNeighbours(cheapestNeighbors);
+
+            for(var i = 0; i<cheapestNeighbors.length; i++) {
+                this.showNeighbours(cheapestNeighbors[i]);
+            }
 
         },
         
         showNeighbours: function (nearestNeighbours) {
+
+            var template = $('#closestEventList').text();
+
+            var renderedTemplate = this.parseTemplate(
+                template,
+                {
+                    eventName: nearestNeighbours.name,
+                    eventXPosition: nearestNeighbours.xPosition,
+                    eventYPosition: nearestNeighbours.yPosition,
+                    eventDistance: nearestNeighbours.distance
+                }
+            );
+
+            $("#eventListGroup").append($(renderedTemplate));
+
+        },
+
+        parseTemplate: function(template, data) {
+
+            var variablePlaceholder = /\{\S+\}/g;
+
+            var rendered = template.replace(variablePlaceholder, function(match){
+
+                var variableName = match.substr(1, match.length-2);
+
+                var value = data[variableName];
+
+                return value;
+
+            });
+
+            return rendered;
 
         }
 
