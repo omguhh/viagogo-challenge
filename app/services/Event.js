@@ -29,7 +29,7 @@
         },
 
 
-        updateEvent: function (eventElement, distance) {
+        updateEvent: function (eventElement, distance, inputEventName) {
 
             var event = {
                 name: eventElement.data('name'),
@@ -37,7 +37,8 @@
                 xPosition: eventElement.data('xPosition'),
                 yPosition: eventElement.data('yPosition'),
                 distance: distance,
-                cheapestTicket: eventElement.data('cheapest-ticket')
+                cheapestTicket: eventElement.data('cheapest-ticket'),
+                inputEventName: inputEventName
             };
 
             return event;
@@ -83,6 +84,8 @@
         findCheapestNeighbors: function (inputXCord, inputYCord, events, maxNeighborsToReturn) {
             var distance= [];
             var nearestNeighbours= [];
+            var inputEventName =  this.getEvent("coordinates",{xCord:inputXCord, yCord:inputYCord} );
+
 
             for(i = 0; i< events.length; i++)  {
                 computedDistance = Math.abs(inputXCord - $(events[i]).data('xPosition')) + Math.abs(inputYCord - $(events[i]).data('yPosition'));
@@ -106,7 +109,7 @@
 
             for(var i = 0; i<nearestNeighbours.length; i++) {
                 nearestNeighbourEventItem= this.getEvent("id",{id:nearestNeighbours[i].eventID});
-                nearestNeighbours[i] = this.updateEvent(nearestNeighbourEventItem,nearestNeighbours[i].distanceFromInput);
+                nearestNeighbours[i] = this.updateEvent(nearestNeighbourEventItem,nearestNeighbours[i].distanceFromInput, inputEventName.data('name'));
             }
 
             return nearestNeighbours;

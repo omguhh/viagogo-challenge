@@ -70,7 +70,8 @@
                     eventXPosition: nearestNeighbours.xPosition,
                     eventYPosition: nearestNeighbours.yPosition,
                     eventDistance: nearestNeighbours.distance,
-                    eventTicketPrice: nearestNeighbours.cheapestTicket
+                    eventTicketPrice: nearestNeighbours.cheapestTicket,
+                    inputEventName: nearestNeighbours.inputEventName
                 }
             );
 
