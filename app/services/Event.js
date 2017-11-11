@@ -15,13 +15,25 @@
             this.generateEvents(this.config.gridSize);
         },
 
-        getEvent: function (eventID, distance) {
+        getEvent: function (searchType, data) {
+            var eventElement;
+            switch (searchType) {
+                case 'id':
+                    eventElement =  $(".event[id='" + data.id + "']");
+                    break;
+                case 'coordinates':
+                    eventElement = $(".event[data-x-position='" + data.xCord + "'][data-y-position='" + data.yCord +"']").addClass("event--active");
+                    break;
+            }
+            return eventElement;
+        },
 
-           var eventElement =  $(".event[id='" + eventID + "']");
+
+        updateEvent: function (eventElement, distance) {
 
             var event = {
                 name: eventElement.data('name'),
-                _id: eventID,
+                _id: eventElement.attr('id'),
                 xPosition: eventElement.data('xPosition'),
                 yPosition: eventElement.data('yPosition'),
                 distance: distance,
@@ -64,7 +76,8 @@
 
         findCurrentEvent: function(inputXCord, inputYCord) {
             $('.event').removeClass('event--active');
-            $(".event[data-x-position='" + inputXCord + "'][data-y-position='" + inputYCord +"']").addClass("event--active");
+            var eventItem = this.getEvent('coordinates',{xCord:inputXCord, yCord:inputYCord });
+            eventItem.addClass("event--active");
         },
 
         findCheapestNeighbors: function (inputXCord, inputYCord, events, maxNeighborsToReturn) {
@@ -92,7 +105,8 @@
             nearestNeighbours = distance.slice(1,maxNeighborsToReturn);
 
             for(var i = 0; i<nearestNeighbours.length; i++) {
-                nearestNeighbours[i]= this.getEvent(nearestNeighbours[i].eventID,nearestNeighbours[i].distanceFromInput);
+                nearestNeighbourEventItem= this.getEvent("id",{id:nearestNeighbours[i].eventID});
+                nearestNeighbours[i] = this.updateEvent(nearestNeighbourEventItem,nearestNeighbours[i].distanceFromInput);
             }
 
             return nearestNeighbours;
