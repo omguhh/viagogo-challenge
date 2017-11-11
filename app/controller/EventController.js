@@ -42,12 +42,19 @@
 
             this.eventService.findCurrentEvent(xposition,yposition);
             var cheapestNeighbors = this.eventService.findCheapestNeighbors(xposition,yposition,$('.event'), this.config.maxNeighborsToReturn);
+            $("#eventListGroup,#eventSearchResultTitle ").empty();
 
-            $("#eventListGroup").empty();
+            this.updateSearchTitle(xposition,yposition);
 
             for(var i = 0; i<cheapestNeighbors.length; i++) {
                 this.showNeighbours(cheapestNeighbors[i]);
             }
+
+        },
+
+        updateSearchTitle: function (xposition,yposition) {
+            var lookedUpEvent = this.eventService.getEvent("coordinates",{xCord:xposition, yCord:yposition} );
+            $("#eventSearchResultTitle").append("<h4>Top 5 Events for " + lookedUpEvent.data('name') + "</h4>");
 
         },
         
