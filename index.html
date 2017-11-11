@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Viagogo Code Challenge</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="app/styles/blocks/event.css">
     <link rel="stylesheet" href="app/styles/blocks/form.css">
+    <link rel="stylesheet" href="app/styles/blocks/search.css">
 </head>
 <body>
 <div class="container">
@@ -35,14 +37,14 @@
                             <label class="sr-only" for="xCoordinate">Name</label>
                             <div class="input-group mb-2 mb-sm-0">
                                 <div class="input-group-addon">X</div>
-                                <input type="text" class="form-control" id="xCoordinate" placeholder="X Coordinate">
+                                <input type="number" class="form-control" id="xCoordinate" placeholder="X Coordinate">
                             </div>
                         </div>
                         <div class="col-auto">
                             <label class="sr-only" for="yCoordinate">Username</label>
                             <div class="input-group mb-2 mb-sm-0">
                                 <div class="input-group-addon">Y</div>
-                                <input type="text" class="form-control" id="yCoordinate" placeholder="Y Coordinate">
+                                <input type="number" class="form-control" id="yCoordinate" placeholder="Y Coordinate">
                             </div>
                         </div>
                         <div >
@@ -52,7 +54,12 @@
                 </form>
 
                 <div id="eventSearchResultTitle"></div>
-                <div class="list-group" id="eventListGroup"></div>
+                <div class="list-group" id="eventListGroup">
+
+                    <div class="text-center">
+                        <i class="fa fa-search search__icon" aria-hidden="true"></i></div>
+                        <h5 class="text-center">Oh! There's nothing here..try looking for an event in the form!</h5>
+                </div>
         </div>
 
         <!-- DIY Template :) -->
