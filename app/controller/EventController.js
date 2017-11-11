@@ -62,7 +62,8 @@
                     eventName: nearestNeighbours.name,
                     eventXPosition: nearestNeighbours.xPosition,
                     eventYPosition: nearestNeighbours.yPosition,
-                    eventDistance: nearestNeighbours.distance
+                    eventDistance: nearestNeighbours.distance,
+                    eventTicketPrice: nearestNeighbours.cheapestTicket
                 }
             );
 

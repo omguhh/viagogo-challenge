@@ -33,7 +33,7 @@
 
            return {
                tickets: tickets,
-               cheapestTicket: cheapestTicket || 0
+               cheapestTicket: cheapestTicket  || 0
            };
 
         }

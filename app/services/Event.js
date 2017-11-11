@@ -24,7 +24,8 @@
                 _id: eventID,
                 xPosition: eventElement.data('xPosition'),
                 yPosition: eventElement.data('yPosition'),
-                distance: distance
+                distance: distance,
+                cheapestTicket: eventElement.data('cheapest-ticket')
             };
 
             return event;
@@ -57,7 +58,7 @@
         appendEvents: function (events) {
 
             for (i = 0; i < events.length; i++) {
-                $("<div class='event' id='" + events[i]._id + "' data-x-position='" + events[i].xPosition + "' data-y-position='" + events[i].yPosition + "' data-name='" + events[i].name + "'>").appendTo(this.config.gridContainer);
+                $("<div class='event' id='" + events[i]._id + "' data-x-position='" + events[i].xPosition + "' data-y-position='" + events[i].yPosition + "' data-name='" + events[i].name + "' data-cheapest-ticket='" + events[i].tickets.cheapestTicket.ticketPrice + "'>").appendTo(this.config.gridContainer);
             }
         },
 
