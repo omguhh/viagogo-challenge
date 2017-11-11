@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Viagogo Code Challenge</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="app/event.css">
+    <link rel="stylesheet" href="app/styles/blocks/event.css">
+    <link rel="stylesheet" href="app/styles/blocks/form.css">
 </head>
 <body>
 <div class="container">
@@ -28,7 +29,7 @@
             </div>
 
             <div class="col-lg-7">
-                <form>
+                <form class="form__wrapper">
                     <div class="form-row align-items-center">
                         <div class="col-auto">
                             <label class="sr-only" for="xCoordinate">Name</label>
@@ -49,11 +50,27 @@
                         </div>
                     </div>
                 </form>
-            </div>
 
-
+                <h4> Top 5 events near Event 1 </h4>
+                <div class="list-group" id="eventListGroup"></div>
         </div>
 
+        <!-- DIY Template :) -->
+        <script type="text/template" id="closestEventList">
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" id="{eventID}">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{eventName}</h5>
+                    <small>Posted 3 days ago</small>
+                </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                <p class="mb-1">Located at: <span class="text-primary"> ({eventXPosition} , {eventYPosition}) </span> </p>
+                <p class="mb-1"> Distance from {inputEventName} : {eventDistance} </p>
+                <p class="mb-1 text-success  font-weight-bold">Cheapest Ticket Price: $ {eventTicketPrice}</p>
+                <button type="button" class="btn btn-primary">Buy Tickets Now!</button>
+            </a>
+        </script>
+
+        </div>
     </main>
 
 </div> <!-- /container -->

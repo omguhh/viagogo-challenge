@@ -43,6 +43,8 @@
             this.eventService.findCurrentEvent(xposition,yposition);
             var cheapestNeighbors = this.eventService.findCheapestNeighbors(xposition,yposition,$('.event'), this.config.maxNeighborsToReturn);
 
+            $("#eventListGroup").empty();
+
             for(var i = 0; i<cheapestNeighbors.length; i++) {
                 this.showNeighbours(cheapestNeighbors[i]);
             }
@@ -56,6 +58,7 @@
             var renderedTemplate = this.parseTemplate(
                 template,
                 {
+                    eventID: nearestNeighbours._id,
                     eventName: nearestNeighbours.name,
                     eventXPosition: nearestNeighbours.xPosition,
                     eventYPosition: nearestNeighbours.yPosition,
