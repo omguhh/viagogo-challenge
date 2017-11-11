@@ -35,6 +35,11 @@ Event 001 - $35.20, Distance 5
 
 Event 006 - $01.40, Distance 1
 
+# Instructions
+
+Nothing! Just click on the link in the repo summary, or click right [here](https://omguhh.github.io/viagogo-challenge/) :) 
+
+
 # Questions
 
 * How might you change your program if you needed to support multiple events at the
