@@ -21,7 +21,8 @@
 
         elements: {
             submitButton: $('.js-submit'),
-            event: $('.event')
+            event: $('.event'),
+            errorIcon: $('.js-error-icon')
         },
 
 
@@ -40,14 +41,18 @@
             var xposition = $('#xCoordinate')[0].value;
             var yposition = $('#yCoordinate')[0].value;
 
-            this.eventService.findCurrentEvent(xposition,yposition);
+            var currentEvent = this.eventService.findCurrentEvent(xposition,yposition);
             var cheapestNeighbors = this.eventService.findCheapestNeighbors(xposition,yposition,$('.event'), this.config.maxNeighborsToReturn);
             $("#eventListGroup,#eventSearchResultTitle ").empty();
 
-            this.updateSearchTitle(xposition,yposition);
-
-            for(var i = 0; i<cheapestNeighbors.length; i++) {
-                this.showNeighbours(cheapestNeighbors[i]);
+            if(currentEvent.length > 0) {
+                this.elements.errorIcon.addClass('invisible');
+                this.updateSearchTitle(xposition, yposition);
+                for (var i = 0; i < cheapestNeighbors.length; i++) {
+                    this.showNeighbours(cheapestNeighbors[i]);
+                }
+            } else {
+                this.elements.errorIcon.removeClass('invisible');
             }
 
         },

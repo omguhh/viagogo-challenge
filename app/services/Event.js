@@ -79,6 +79,7 @@
             $('.event').removeClass('event--active');
             var eventItem = this.getEvent('coordinates',{xCord:inputXCord, yCord:inputYCord });
             eventItem.addClass("event--active");
+            return eventItem;
         },
 
         findCheapestNeighbors: function (inputXCord, inputYCord, events, maxNeighborsToReturn) {

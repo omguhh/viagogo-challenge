@@ -1,9 +1,17 @@
-.search__icon {
-    color: #007bff;
+.icon {
     font-size: 4em;
     background-color: #f7f7f7;
     padding: 38px 40px;
     border-radius: 100%;
     margin: 1em 0;
     border: 20px solid #fbfbfb;
+}
+.icon--search {
+    color: #007bff;
+
+}
+
+.icon--sad {
+    color: #d9534f;
+
 }
