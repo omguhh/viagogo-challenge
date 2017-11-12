@@ -55,33 +55,33 @@
 
                 <div id="eventSearchResultTitle"></div>
                 <div class="list-group" id="eventListGroup">
-
                     <div class="text-center">
-                        <i class="fa fa-search icon icon--search" aria-hidden="true"></i></div>
+                        <i class="fa fa-search icon icon--search" aria-hidden="true"></i>
+                        <h5 class="text-center">Oh! There's nothing here..try looking for an event in the form!</h5>
                     </div>
-
-                    <div class="text-center invisible js-error-icon">
-                        <i class="fa fa-frown-o icon icon--sad" aria-hidden="true"></i>
-                        <h5 class="text-center">Oh! That event doesn't exist! Try looking for another. </h5>
-                    </div>
-        </div>
-
-        <!-- DIY Template :) -->
-        <script type="text/template" id="closestEventList">
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" id="{eventID}">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">{eventName}</h5>
-                    <small>Posted 3 days ago</small>
                 </div>
-                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                <p class="mb-1">Located at: <span class="text-primary"> ({eventXPosition} , {eventYPosition}) </span> </p>
-                <p class="mb-1"> Distance from {inputEventName}: {eventDistance} </p>
-                <p class="mb-1 text-success  font-weight-bold">Tickets as low as ${eventTicketPrice}! </p>
-                <button type="button" class="btn btn-primary">Buy Tickets Now!</button>
-            </a>
-        </script>
 
-        </div>
+                <div class="text-center invisible js-error-icon">
+                    <i class="fa fa-frown-o icon icon--sad" aria-hidden="true"></i>
+                    <h5 class="text-center">Oh! That event doesn't exist! Try looking for another. </h5>
+                </div>
+
+                <!-- DIY Template :) -->
+                <script type="text/template" id="closestEventList">
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" id="{eventID}">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{eventName}</h5>
+                            <small>Posted 3 days ago</small>
+                        </div>
+                        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                        <p class="mb-1">Located at: <span class="text-primary"> ({eventXPosition} , {eventYPosition}) </span> </p>
+                        <p class="mb-1"> Distance from {inputEventName}: {eventDistance} </p>
+                        <p class="mb-1 text-success  font-weight-bold">Tickets as low as ${eventTicketPrice}! </p>
+                        <button type="button" class="btn btn-primary">Buy Tickets Now!</button>
+                    </a>
+                </script>
+
+            </div>
     </main>
 
 </div> <!-- /container -->
