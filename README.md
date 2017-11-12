@@ -44,5 +44,11 @@ Nothing! Just click on the link in the repo summary, or click right [here](https
 
 * How might you change your program if you needed to support multiple events at the
 same location?
-* How would you change your program if you were working with a much larger world
-size?
+
+I would create a new object, called location, and would generate the grid with every block being a location instead of an event. 
+Within every location block, I would generate multiple events, similar to how multiple tickets are created for the same event. 
+
+* How would you change your program if you were working with a much larger world size?
+
+Well, if it was a larger world, the search implementation would need to improve because right now, there's a loop going through all the event elements that were generated, which is unnecessary if we just need to find the 5 closest elements. 
+Maybe a better way to do this, is to change the structure of how these events are organized, so they have information about the neighbours near to them. Ex: Change it from a basic array, to a tree structure that you can easily travel up/down in to find neighbours relevant to that specific point in the grid, without having to look into other unnecessary points.
